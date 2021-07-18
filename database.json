@@ -1,0 +1,7 @@
+{
+    "auth0|60f0386a21c3820069d4b7d8": "{\"id\":\"auth0|60f0386a21c3820069d4b7d8\",\"email\":\"vincent.luc@hoopiz.fr\",\"name\":\"Vincent LUC\",\"companyIds\":[\"COMPANY1\",\"COMPANY2\"]}",
+    "auth0|60f1029fa0709c006a916621": "{\"id\":\"auth0|60f1029fa0709c006a916621\",\"email\":\"georges.luc@hoopiz.fr\",\"name\":\"Georges Luc\",\"companyIds\":[\"DEFAULT-COMPANY\"]}",
+    "google-oauth2|114951020939858304196": "{\"id\":\"auth0|60f1029fa0709c006a916621\",\"email\":\"nicolas.lemesle@hoopiz.fr\",\"name\":\"Nicolas Lemesle\",\"companyIds\":[\"COMPANY1\",\"COMPANY3\"]}",
+    "auth0|60f21dc021c3820069d56d09": "{\"id\":\"auth0|60f21dc021c3820069d56d09\",\"email\":\"yvette.luc@hoopiz.fr\",\"name\":\"Yvette Luc\",\"companyIds\":[\"DEFAULT-COMPANY\"]}",
+    "auth0|60f499be9764ba00706a7f3d": "{\"id\":\"auth0|60f499be9764ba00706a7f3d\",\"email\":\"laura.luc@hoopiz.fr\",\"name\":\"laura.luc@hoopiz.fr\",\"companyIds\":[\"DEFAULT-COMPANY\"]}"
+}

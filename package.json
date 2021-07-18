@@ -1,10 +1,10 @@
 {
   "name": "auth0-tester",
   "description": "Auth0 Tester",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Vincent LUC",
   "license": "ISC",
-"scripts": {
+  "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "start-server": "./node_modules/.bin/ts-node ./server/server.ts --secure",
@@ -30,9 +30,11 @@
     "express": "^4.17.1",
     "express-jwt": "^6.0.0",
     "https": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^2.0.3",
     "moment": "^2.29.1",
     "rxjs": "~6.5.4",
+    "simple-json-db": "^1.2.3",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
@@ -55,7 +57,6 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~3.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
-    "nodemon": "^2.0.12",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",

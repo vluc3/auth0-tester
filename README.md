@@ -20,6 +20,7 @@ npm i -s -D @types/express
 
 npm i -s express-jwt
 npm i -s jwks-rsa
+npm i -s jsonwebtoken
 
 npm i -s cors
 npm i -s -D @types/cors
@@ -28,6 +29,8 @@ npm i -s body-parser
 
 npm i -s auth0-js
 npm i -s -D @types/auth0-js
+
+npm i -s simple-json-db
 ```
 
 ### Back-end (optional)

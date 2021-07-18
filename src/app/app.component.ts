@@ -65,6 +65,10 @@ export class AppComponent implements OnInit {
     return (this.signedIn && this.authService.name !== this.authService.email) ? this.authService.name : null;
   }
 
+  getCompanyIds(): string {
+    return (this.signedIn && this.authService.companyIds) ? this.authService.companyIds.join(', ') : null;
+  }
+
   getData() {
     this.authService.getData().subscribe((response: any) => {
       this.data = response?.data;

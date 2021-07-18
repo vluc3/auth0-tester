@@ -8,6 +8,8 @@ import * as auth0 from 'auth0-js';
 import * as moment from 'moment';
 import { Moment } from 'moment';
 
+import { User } from '../../../shared/user.model';
+
 @Injectable()
 export class AuthService {
 
@@ -17,6 +19,8 @@ export class AuthService {
     clientID: '9D0LHGTPFCODuIfHUIkNdlyvZn29sAto',
     domain: 'hoopiz-demo.eu.auth0.com'
   };
+
+  private user: User;
 
   readonly serverPort = 3000;
   readonly serverUrl = `http://www.localhost:${this.serverPort}`;
@@ -31,6 +35,10 @@ export class AuthService {
         responseType: 'token id_token',
         redirectUri: 'http://localhost:4200',
       });
+
+      if (this.signedIn) {
+        this.getUser();
+      }
     }
 
   get signedIn(): boolean {
@@ -48,12 +56,17 @@ export class AuthService {
   }
 
   get email(): string {
-    const result: string = localStorage.getItem('auth0.email');
+    const result: string = (this.user) ? this.user.email : '';
     return result;
   }
 
   get name(): string {
-    const result: string = localStorage.getItem('auth0.name');
+    const result: string = (this.user) ? this.user.name : '';
+    return result;
+  }
+
+  get companyIds(): string[] {
+    const result: string[] = (this.user) ? this.user.companyIds : [];
     return result;
   }
 
@@ -77,6 +90,7 @@ export class AuthService {
         console.log('Authentication successful:', result);
         window.location.hash = '';
         this.storeToken(result);
+        this.getUser();
       }
     });
   }
@@ -94,6 +108,15 @@ export class AuthService {
     localStorage.removeItem('auth0.expiresAt');
     localStorage.removeItem('auth0.email');
     localStorage.removeItem('auth0.name');
+  }
+
+  private getUser() {
+    this.httpClient.get<User>(`${this.serverUri}/get-user`)
+      .subscribe((user: User) => {
+        this.user = user;
+      }, (errorResponse) => {
+        console.error(errorResponse?.error?.message);
+      });
   }
 
   getData(): Observable<any> {

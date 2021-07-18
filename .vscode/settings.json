@@ -1,0 +1,19 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": true
+  },
+  "editor.parameterHints.enabled": false,
+  "editor.emptySelectionClipboard": false,
+  "less.lint.boxModel": "warning",
+  "less.lint.compatibleVendorPrefixes": "warning",
+  "less.lint.duplicateProperties": "warning",
+  "workbench.editor.enablePreview": false,
+  "git.ignoreLimitWarning": true,
+  "nxConsole.useNVM": true,
+  "editor.formatOnSaveMode": "modifications",
+  "workbench.colorCustomizations": {
+    "tab.activeBackground": "#505050"
+  }
+}
