@@ -1,4 +1,5 @@
 const JSONdb = require('simple-json-db');
+const axios = require('axios').default;
 
 import { Response } from 'express';
 
@@ -11,13 +12,10 @@ export class AuthController {
   getUser = ((request: any, response: Response, next: any) => {
     const user: User = this.parseUser(this.database.get(request.user.id));
 
-    if (! user || ! user.companyIds || user.companyIds.length === 0) {
-      request.user.companyIds = ['DEFAULT-COMPANY'];
-    } else {
-      request.user.companyIds = user.companyIds;
+    if (JSON.stringify(request.user) !== JSON.stringify(user)) {
+      this.database.set(request.user.id, JSON.stringify(request.user));
     }
 
-    this.database.set(request.user.id, JSON.stringify(request.user));
     response.status(200).json(request.user);
   });
 
@@ -27,5 +25,22 @@ export class AuthController {
     }
 
     return null;
+  }
+
+  private getUserMetaData(userId: string, token: string) {
+    const options = {
+      method: 'GET',
+      url: `http://hoopiz-demo.eu.auth0.com/api/v2/users/${userId}`,
+      headers: {
+        Accept: 'application/json',
+        Authorization: token
+      }
+    };
+
+    axios.request(options).then((response: any) => {
+      console.log(response.data);
+    }).catch((error: any) => {
+      console.error(error);
+    });
   }
 }

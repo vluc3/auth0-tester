@@ -31,6 +31,7 @@ npm i -s auth0-js
 npm i -s -D @types/auth0-js
 
 npm i -s simple-json-db
+npm i -s axios
 ```
 
 ### Back-end (optional)

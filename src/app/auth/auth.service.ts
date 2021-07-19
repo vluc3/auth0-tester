@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import * as auth0 from 'auth0-js';
+import { AuthorizeOptions } from 'auth0-js';
 
 import * as moment from 'moment';
 import { Moment } from 'moment';
@@ -22,6 +23,8 @@ export class AuthService {
 
   private user: User;
 
+  private prompt = true;
+
   readonly serverPort = 3000;
   readonly serverUrl = `http://www.localhost:${this.serverPort}`;
   readonly serverUri = `${this.serverUrl}/api`;
@@ -33,6 +36,7 @@ export class AuthService {
         clientID: this.auth0Config.clientID,
         domain: this.auth0Config.domain,
         responseType: 'token id_token',
+        scope: 'openid profile email',
         redirectUri: 'http://localhost:4200',
       });
 
@@ -71,7 +75,8 @@ export class AuthService {
   }
 
   signIn() {
-    this.auth0.authorize({prompt: 'login'});
+    const options: AuthorizeOptions = (this.prompt) ? {prompt: 'login'} : {};
+    this.auth0.authorize(options);
   }
 
   signUp() {
