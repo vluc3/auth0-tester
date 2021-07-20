@@ -28,7 +28,7 @@ module.exports = ((request: any, response: Response, next: any) => {
 
 function getUserMetadata(decodedToken: any) {
   try {
-    return decodedToken.payload['https://user_metadata/user_authorization'];
+    return decodedToken.payload['https://user_metadata'];
   } catch (error) {
     return null;
   }
