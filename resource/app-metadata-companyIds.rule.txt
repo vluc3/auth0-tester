@@ -1,0 +1,6 @@
+function (user, context, callback) {
+  const namespace = "https://user_metadata/companyIds";
+  context.accessToken[namespace] = user.user_metadata.companyIds;
+  context.idToken[namespace] = user.user_metadata.companyIds;
+  return callback(null, user, context);
+}
